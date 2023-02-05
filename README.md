@@ -1,2 +1,2 @@
-# SpringBasic
+# Spring-Basic
 스프링 핵심 원리 - 기본편 강의 수강하면서 따라한 샘플 프로젝트
