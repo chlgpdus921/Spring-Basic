@@ -10,6 +10,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Scope;
 
+import javax.inject.Provider;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class SingletonWithPrototypeTest1 {
@@ -48,7 +50,7 @@ public class SingletonWithPrototypeTest1 {
 //        ApplicationContext applicationContext;
 
         @Autowired
-        private ObjectProvider<PrototypeBean> prototypeBeanObjectProvider;
+        private Provider<PrototypeBean> prototypeBeanObjectProvider;
 
 //        @Autowired
 //        public ClientBean(PrototypeBean prototypeBean) {
@@ -57,7 +59,7 @@ public class SingletonWithPrototypeTest1 {
 
         public int logic() {
         //    PrototypeBean prototypeBean = applicationContext.getBean(PrototypeBean.class);
-            PrototypeBean prototypeBean = prototypeBeanObjectProvider.getObject();
+            PrototypeBean prototypeBean = prototypeBeanObjectProvider.get();
             prototypeBean.addCount();
             return prototypeBean.getCount();
         }
